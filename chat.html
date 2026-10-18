@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeChat - VibeSpace</title>
+    <link rel="stylesheet" href="chat.css">
+</head>
+<body>
+
+    <header class="chat-header">
+        <a href="home.html" class="logo">VibeSpace</a>
+        <h2>VibeChat</h2>
+        <a href="home.html" class="back-link">← Home</a>
+    </header>
+
+    <main class="chat-layout">
+        <aside class="chat-sidebar">
+            <input
+                type="text"
+                id="searchContact"
+                placeholder="Cari percakapan..."
+            >
+
+            <div id="contactList"></div>
+
+            <button id="newChatBtn">+ Chat Baru</button>
+        </aside>
+
+        <section class="chat-main">
+            <div id="chatHeader" class="conversation-header">
+                <h3>Pilih percakapan</h3>
+                <p>Pilih teman untuk mulai mengobrol.</p>
+            </div>
+
+            <div id="messageList" class="message-list">
+                <div class="empty-chat">
+                    <span>💬</span>
+                    <h3>Obrolan dimulai di sini</h3>
+                    <p>Pilih percakapan di sebelah kiri.</p>
+                </div>
+            </div>
+
+            <form id="messageForm" class="message-form">
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="Tulis pesan..."
+                    autocomplete="off"
+                    disabled
+                >
+                <button type="submit" id="sendButton" disabled>
+                    Kirim ➤
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <script src="chat.js"></script>
+</body>
+</html>

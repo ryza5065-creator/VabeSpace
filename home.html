@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="manifest" href="./manifest.json">
+    <meta name="theme-color" content="#8b5cf6">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeSpace - Home</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+
+<body>
+
+<button type="button" class="theme-toggle" id="themeToggle">
+    🌙 Dark Mode
+</button>
+    <header class="navbar">
+        <h1 class="logo">VibeSpace</h1>
+        <input type="text" id="searchInput" placeholder="Cari sesuatu...">
+        <button onclick="logout()">Logout</button>
+    </header>
+
+    <main class="layout">
+
+        <aside class="sidebar">
+            <h3>Menu</h3>
+            <a href="home.html">🏠 Home</a>
+            <a href="#stories">⭕ Stories</a>
+            <a href="#feed">📸 Feed</a>
+            <a href="profile.html">👤 Profile</a>
+            <a href="reels.html">🎬 Reels</a>
+            <a href="chat.html">💬 VibeChat</a>
+        </aside>
+
+        <section class="content">
+            <h2 id="welcome">Selamat datang di VibeSpace!</h2>
+            <p class="subtitle">Tempat berbagi cerita dan momen lu.</p>
+
+            <div class="stories" id="stories">
+                <button type="button" class="story story-add" id="addStoryButton" aria-label="Tambah story">
+                    <span class="story-avatar add-story-avatar">＋</span><span>Story</span>
+                </button>
+                <div class="story">
+                    <div class="story-avatar">A</div>
+                    <span>Aditya</span>
+                </div>
+                <div class="story">
+                    <div class="story-avatar">R</div>
+                    <span>Raka</span>
+                </div>
+                <div class="story">
+                    <div class="story-avatar">N</div>
+                    <span>Nadia</span>
+                </div>
+                <div class="story">
+                    <div class="story-avatar">D</div>
+                    <span>Dimas</span>
+                </div>
+            </div>
+
+            <div class="create-post">
+                <h3>Buat postingan</h3>
+                <textarea id="postInput" placeholder="Lagi ngapain hari ini?"></textarea>
+                <button onclick="addPost()">Posting</button>
+            </div>
+
+            <div id="feed">
+                <h3>Postingan terbaru</h3>
+
+                <article class="post">
+                    <h4>Raka <span>@raka.jpg</span></h4>
+                    <p>Senja hari ini bagus banget! 🌅</p>
+                    <div class="post-image sunset">
+                    <img src="https://i.pinimg.com/1200x/fb/75/61/fb75614f0d50ab12e57367fb6aa465e2.jpg" width="100%" heigth="250px" />                   
+                    </div>
+                    <button class="like-btn" onclick="likePost(this)">
+                        ♡ Like <span>0</span>
+                    </button>
+                </article>
+
+                <article class="post">
+                    <h4>Nadia <span>@nadiaaa</span></h4>
+                    <p>Pelan-pelan aja, yang penting tetap jalan. ☕</p>
+                    <div class="post-image coffee">
+                    <img src = "kopi.jpg" width: 350px; heigth: 200px; />
+                    </div>
+                    <button class="like-btn" onclick="likePost(this)">
+                        ♡ Like <span>0</span>
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <aside class="right-sidebar">
+            <h3>Saran teman</h3>
+            <p>👤 Raka <button onclick="followUser(this)">Follow</button></p>
+            <p>👤 Nadia <button onclick="followUser(this)">Follow</button></p>
+            <p>👤 Dimas <button onclick="followUser(this)">Follow</button></p>
+            <p>👤 Reja <button onclick="followUser(this)">Follow</button></p>
+            <p>👤 jessica <button onclick="followUser(this)">Follow</button></p>
+            <p>👤 Nabila <button onclick="followUser(this)">Follow</button></p>
+        </aside>
+
+    </main>
+
+
+    <div class="story-modal" id="storyModal" hidden role="dialog" aria-modal="true" aria-label="Story">
+        <div class="story-viewer">
+            <button type="button" class="story-close" id="closeStory" aria-label="Tutup story">×</button>
+            <div class="story-progress"><span id="storyProgress"></span></div>
+            <div class="story-viewer-user" id="storyViewerUser"></div>
+            <div class="story-viewer-content" id="storyViewerContent"></div>
+            <div class="story-viewer-actions" id="storyViewerActions"></div>
+        </div>
+    </div>
+    <input type="file" id="storyImageInput" accept="image/*" hidden>
+
+    <script src="home.js"></script>
+    
+    <script>
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+            .catch(error => console.error("PWA:", error));
+    });
+}
+</script>
+
+</body>
+</html>

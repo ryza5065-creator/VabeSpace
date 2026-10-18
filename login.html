@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeSpace Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button type="button" class="theme-toggle" id="themeToggle">
+        🌙 Dark Mode
+    </button>
+
+    <div class="container">
+        <h1>LOGIN TO VIBESPACE</h1>
+
+        <form id="loginForm">
+
+            <div class="form-group input-icon">
+                <span class="field-icon">👤</span>
+                <input type="text" id="username" name="username"
+                    placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group input-icon">
+                <span class="field-icon">🔒</span>
+                <input type="password" id="password" name="password"
+                    placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group input-icon">
+                <span class="field-icon">✉️</span>
+                <input type="email" id="email" name="email"
+                    placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit">SUBMIT</button>
+            </div>
+
+        </form>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>
